@@ -1,23 +1,27 @@
-exports.register = (req,res,next) =>{
-    const {email ,password} = req.body
-    res.json({email, password})
-    
-}
-
-exports.login = (req,res,next)=>{
-    res.json({message: "login"})
-}
-
-exports.forgetPassword = (req,res,next)=>{
-    const {email}=req.body
-    res.json({message: "forget password"})
-}
-
-exports.verifyForgetPassword = (req,res,next)=>{
-    res.json({message: "verify forget password"})
+exports.register = (req, res, next) => {
+    const { email, password } = req.body
+    res.json({ email, password })
 
 }
 
-exports.resetPassword = (req,res,next)=>{
-    res.json({message: "reset password"})
+exports.login = (req, res, next) => {
+    const { email, password } = req.body
+    res.json({ email, password })
+}
+
+exports.forgetPassword = (req, res, next) => {
+    const { email } = req.body
+    res.json({ message: "forget password" })
+}
+
+exports.verifyForgetPassword = (req, res, next) => {
+    const { token } = req.params
+    res.json({ token })
+
+}
+
+exports.resetPassword = (req, res, next) => {
+    const { token } = req.params
+    const { password } = req.body
+    res.json({token,password})
 }
