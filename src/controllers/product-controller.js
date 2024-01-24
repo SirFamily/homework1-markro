@@ -3,9 +3,11 @@ exports.getProductsLanding = (req,res,next)=>{
 }
 
 exports.getProducts = (req,res,next)=>{
-    res.json({message:"get filtered product"})
+    const {search,promot} = req.query
+    res.json({search,promot})
 }
 
 exports.getProductsById =(req,res,next) =>{
-    res.json({message:"get productID"})
+    const {productId} = req.params
+    res.json({productId})
 }
